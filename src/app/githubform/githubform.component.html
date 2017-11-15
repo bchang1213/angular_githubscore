@@ -1,0 +1,14 @@
+<fieldset>
+	<h3>GitHub Score</h3>
+	<form (submit)="callGithub()" #userForm="ngForm">
+		<label>Github Username:
+			<input type="text" name="username" required minlength='4' maxlength='24' [(ngModel)]='user.username' #username='ngModel'>
+			<span class="invalid" *ngIf="username.dirty && username.invalid">Username must be at least 4 chars.</span>
+			<input type="submit" name="submit" value="Calculate my Github Score" [disabled]="userForm.invalid">
+		</label>
+	</form>
+
+	<div>
+		<h1>Your Score:<span>{{user.score}}</span></h1>
+	</div>
+</fieldset>
